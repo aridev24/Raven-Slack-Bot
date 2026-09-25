@@ -52,7 +52,6 @@ app.command("/raven-quote", async ({ ack, respond }) => {
   try {
     const response= await axios.get("https://zenquotes.io/api/random");
 
-
     const quote = `${response.data[0].q}\n— ${response.data[0].a}`;
 
     await respond({
@@ -65,6 +64,52 @@ app.command("/raven-quote", async ({ ack, respond }) => {
   }
 });
 
+
+app.command("/raven-fox", async ({ ack, respond }) => {
+  await ack();
+
+  try {
+    const response= await axios.get("https://randomfox.ca/floof/");
+    
+    const fox = `${response.data.image}\n ${response.data.link}`;
+
+    await respond({
+      blocks: [
+        {
+          type: "image",
+          image_url: response.data.image,
+          alt_text: "A random fox 🦊"
+        }
+      ]
+    });
+
+  } catch (err) {
+    console.error("Fox API error:", err);
+    await respond({
+      text: "Failed to fetch a fox.", });
+  }
+});
+
+
+app.command("/raven-fact", async ({ ack, respond }) => {
+  await ack();
+
+  try {
+    const response= await axios.get("https://www.drivebird.com/api/facts/random?count=1"    );
+
+    const fact = `${response.data.data[0].title}\n— ${response.data.data[0].fact}`;
+
+    await respond({
+      text: fact,
+    });
+  } catch (err) {
+    console.error("Fact API error:", err);
+    await respond({
+      text: "Failed to fetch a fact.", });
+  }
+});
+
+
 (async () => {
   try {
     await app.start();
@@ -73,4 +118,6 @@ app.command("/raven-quote", async ({ ack, respond }) => {
     console.error("Failed to start Raven:", error);
   }
 })();
+
+
 
