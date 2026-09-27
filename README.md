@@ -10,10 +10,11 @@ To be honest raven is a bird. Yea it is but this one is a slack bot. You little 
 ## Main features
 
 1. /raven-ping - Check bot latency
-2. /raven-joke - Get a joke
-3. /raven-quote - Get a quote
-4. /raven-fact - Get a fact
-5. /rave-fox - Get a fox
+2. /raven-help - Gives you the list of available commands
+3. /raven-joke - Get a joke
+4. /raven-quote - Get a quote
+5. /raven-fact - Get a fact
+6. /rave-fox - Get a fox
 
 I added the fox command because its cute and funny, and also because of the story of the crow and the fox, I know raven is not a crow its just for fun.
 
