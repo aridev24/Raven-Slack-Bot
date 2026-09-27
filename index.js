@@ -24,7 +24,10 @@ app.command("/raven-help", async ({ ack, respond }) => {
 `Available Commands:
 /raven-ping - Check bot latency
 /raven-joke - Get a joke
-/raven-quote - Get a stoic quote`
+/raven-quote - Get a quote
+/raven-fact - Get a fact
+/raven-fox - Get a fox
+/raven-help - Gives you the list of available commands`
   });
 });
 
